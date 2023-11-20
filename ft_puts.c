@@ -6,9 +6,11 @@
 /*   By: afanidi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:51:07 by afanidi           #+#    #+#             */
-/*   Updated: 2023/11/18 00:18:34 by afanidi          ###   ########.fr       */
+/*   Updated: 2023/11/20 12:33:08 by afanidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char a, int *count)
 {
@@ -21,6 +23,11 @@ void	ft_putstr(char *str, int *count)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)", count);
+		return ;
+	}
 	while (str[i])
 		ft_putchar(str[i++], count);
 }

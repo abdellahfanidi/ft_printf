@@ -9,11 +9,11 @@ void	handle(char *f, int *c, va_list ap)
 	else if (*f == 'd' || *f == 'i')
 		ft_putnbr(va_arg(ap, int) , c);
 	else if  (*f == 'p')
-		ft_put_hex(va_arg(ap, void *), c, "0123456789abcdef", 0);
+		ft_puthex1((size_t)va_arg(ap, void *), c, "0123456789abcdef");
 	else if (*f == 'x')
-		ft_put_hex(va_arg(ap, long int), c, "0123456789abcdef", 1);
+		ft_puthex2(va_arg(ap, unsigned int), c, "0123456789abcdef");
 	else if (*f == 'X')
-		ft_put_hex(va_arg(ap, long int), c, "0123456789ABCDEF", 1);
+		ft_puthex2(va_arg(ap, unsigned int), c, "0123456789ABCDEF");
 	else if (*f == 'u')
 		ft_putUD(va_arg(ap, unsigned int), c);
 	else if (*f == '%')
