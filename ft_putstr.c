@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afanidi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 23:45:18 by afanidi           #+#    #+#             */
-/*   Updated: 2023/11/21 18:10:28 by afanidi          ###   ########.fr       */
+/*   Created: 2023/11/21 18:07:02 by afanidi           #+#    #+#             */
+/*   Updated: 2023/11/21 18:07:05 by afanidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+void	ft_putstr(char *str, int *count)
+{
+	int	i;
 
-int		ft_printf(const char *f, ...);
-void	ft_putchar(char a, int *count);
-void	ft_putstr(char *str, int *count);
-void	ft_putnbr(int n, int *count);
-void	ft_putaddr(size_t addr, int *count, char *hex);
-void	ft_puthex_udecimal(unsigned int num, int *count, char *hex);
-
-#endif
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)", count);
+		return ;
+	}
+	while (str[i])
+		ft_putchar(str[i++], count);
+}
